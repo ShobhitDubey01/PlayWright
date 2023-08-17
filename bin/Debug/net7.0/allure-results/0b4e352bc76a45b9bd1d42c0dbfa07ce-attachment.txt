@@ -1,0 +1,14 @@
+{"name":"Shobhit","job":"Automation","id":"222","createdAt":"2023-08-16T14:54:40.283Z"}
+Header date=Wed, 16 Aug 2023 14:54:40 GMT
+Header content-type=application/json; charset=utf-8
+Header content-length=87
+Header connection=close
+Header x-powered-by=Express
+Header access-control-allow-origin=*
+Header etag=W/"57-KDX8Li9dWs3BEYSPQbxVtqUrkG4"
+Header via=1.1 vegur
+Header cf-cache-status=DYNAMIC
+Header report-to={"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=6Sv5XDazQdwxk%2FgglVrDFl%2B6NbkRA06PB%2FgZH%2BagqgIFCBoddWjFfXpNSNBsxACKa1R6%2FZQ37PSMpo3uzLOP4rEFqyNF4jFsBG%2BfmFMqIZQ3FMfw1z28WKBC%2BTOIDZ%2FUV5Bar0Tvag%3D%3D"}],"group":"cf-nel","max_age":604800}
+Header nel={"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Header server=cloudflare
+Header cf-ray=7f7a838c8c634483-BOM
