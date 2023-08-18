@@ -38,5 +38,6 @@ steps:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
       **\*newplaywright*.dll
-     
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+       !**\*TestAdapter.dll
+        !**\obj\**
+        searchFolder: '$(System.DefaultWorkingDirectory)'
