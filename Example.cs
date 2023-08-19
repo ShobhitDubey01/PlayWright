@@ -1,14 +1,11 @@
 ﻿
-
-
-
-
-
 using Microsoft.Playwright;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Allure.Core;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +16,20 @@ using System.Threading.Tasks;
 
 namespace newplaywright
 {
-    [AllureNUnit]  
+    [AllureNUnit]
     internal class Example
     {
        
+      
+  
 
         [Test]
         [Category("crud")]
         public async Task test1() {
+            var log = new LoggerConfiguration()
+                .WriteTo.Console()
+                .CreateLogger();
+           
             var playwright = await Playwright.CreateAsync();
             var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
             {
@@ -36,8 +39,8 @@ namespace newplaywright
 
            var response = await request.GetAsync("api/users?page=2");
             var data=await response.TextAsync();
-            Console.WriteLine(data);
-            
+          
+            log.Information("Hello World");
         
         }
 
@@ -62,7 +65,7 @@ namespace newplaywright
 
 
             var data = await response.TextAsync();
-            Console.WriteLine(data);
+          //  Console.WriteLine(data);
 
         
         }
@@ -98,8 +101,8 @@ namespace newplaywright
           String email = (String)obj["first_name"];
 
             // Assert.
-          Console.WriteLine(email);  
-           Console.WriteLine(data);
+       //   Console.WriteLine(email);  
+         //  Console.WriteLine(data);
 
         }
 
@@ -117,7 +120,7 @@ namespace newplaywright
 
             var data = await response.TextAsync();
             
-            Console.WriteLine(data);
+           // Console.WriteLine(data);
             var headers = response.Headers;
             foreach (var header in headers) {
                 Console.WriteLine($"Header {header.Key}={header.Value}");
@@ -154,7 +157,7 @@ namespace newplaywright
 
             var response = await request.GetAsync("api/users");
             String data = await response.TextAsync();
-            Console.WriteLine(data);
+          //  Console.WriteLine(data);
             Console.WriteLine($"Response Status: {response.Status}");
             //  dynamic obj=JsonConvert.DeserializeObject(data);
 
@@ -177,6 +180,7 @@ namespace newplaywright
         public async Task authTest() {
             const String AuthToken = "a6fc195dd60e618c4f0d37e15ae429917d090fe68d9ca16fd847681cddc448fa";
             var playwright = await Playwright.CreateAsync();
+            
             var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
             {
                 BaseURL = "https://gorest.co.in/"
@@ -198,7 +202,7 @@ namespace newplaywright
             }) ;
 
             Console.WriteLine(response.Status);
-
+           
 
         }
 

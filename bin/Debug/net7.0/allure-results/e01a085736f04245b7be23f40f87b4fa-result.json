@@ -1,0 +1,64 @@
+{
+  "uuid": "1289ec29-f77f-43e2-abb0-47cc0b086301-tr-0-1008",
+  "historyId": "newplaywright.Example.authTest",
+  "fullName": "newplaywright.Example.authTest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-17VQ6MC"
+    },
+    {
+      "name": "package",
+      "value": "newplaywright"
+    },
+    {
+      "name": "testMethod",
+      "value": "authTest"
+    },
+    {
+      "name": "testClass",
+      "value": "Example"
+    }
+  ],
+  "links": [],
+  "name": "authTest",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "authTest"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "authTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "8d8603ea1c9c4d088432c94018f8925b-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1692382364239,
+      "stop": 1692382366321
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1692382364238,
+  "stop": 1692382366324
+}

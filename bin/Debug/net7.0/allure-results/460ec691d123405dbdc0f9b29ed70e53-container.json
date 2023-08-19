@@ -1,0 +1,12 @@
+{
+  "uuid": "c5e51502-014d-4798-aa12-c677e12d787f-tc-0-1000",
+  "name": "newplaywright.Example.test1",
+  "children": [
+    "cea73e37-4102-4393-a82e-e2cbf1ca1dfc-tr-0-1001"
+  ],
+  "befores": [],
+  "afters": [],
+  "links": [],
+  "start": 1692376198534,
+  "stop": 1692376201322
+}

@@ -1,0 +1,64 @@
+{
+  "uuid": "8aad3170-fb7f-4c31-b62c-057f7cf97e43-tr-0-1006",
+  "historyId": "newplaywright.Example.test7",
+  "fullName": "newplaywright.Example.test7",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-17VQ6MC"
+    },
+    {
+      "name": "package",
+      "value": "newplaywright"
+    },
+    {
+      "name": "testMethod",
+      "value": "test7"
+    },
+    {
+      "name": "testClass",
+      "value": "Example"
+    }
+  ],
+  "links": [],
+  "name": "test7",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "test7"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "test7",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "ff0fab11bb3f4d56aab414b40dee9cf5-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1692376128357,
+      "stop": 1692376130037
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1692376128357,
+  "stop": 1692376130037
+}

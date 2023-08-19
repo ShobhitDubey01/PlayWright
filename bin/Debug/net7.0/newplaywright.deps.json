@@ -11,11 +11,15 @@
           "ExtentReports": "4.1.0",
           "Microsoft.NET.Test.Sdk": "17.5.0",
           "Microsoft.Playwright.NUnit": "1.36.0",
+          "Moq": "4.20.69",
           "NUnit": "3.13.3",
           "NUnit.Allure": "1.2.1.1",
           "NUnit.Analyzers": "3.6.1",
           "NUnit3TestAdapter": "4.5.0",
           "RestSharp": "110.2.0",
+          "Serilog": "3.0.1",
+          "Serilog.Sinks.Console": "4.1.0",
+          "Serilog.Sinks.File": "5.0.0",
           "coverlet.collector": "3.2.0"
         },
         "runtime": {
@@ -39,6 +43,17 @@
           "lib/netstandard2.0/AspectInjector.Broker.dll": {
             "assemblyVersion": "2.6.0.0",
             "fileVersion": "2.6.0.0"
+          }
+        }
+      },
+      "Castle.Core/5.1.1": {
+        "dependencies": {
+          "System.Diagnostics.EventLog": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Castle.Core.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.1.0"
           }
         }
       },
@@ -1242,6 +1257,17 @@
           }
         }
       },
+      "Moq/4.20.69": {
+        "dependencies": {
+          "Castle.Core": "5.1.1"
+        },
+        "runtime": {
+          "lib/net6.0/Moq.dll": {
+            "assemblyVersion": "4.20.69.0",
+            "fileVersion": "4.20.69.0"
+          }
+        }
+      },
       "NETStandard.Library/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2"
@@ -1371,6 +1397,36 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
+      "Serilog/3.0.1": {
+        "runtime": {
+          "lib/net7.0/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Console/4.1.0": {
+        "dependencies": {
+          "Serilog": "3.0.1"
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.Sinks.Console.dll": {
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.1.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.File/5.0.0": {
+        "dependencies": {
+          "Serilog": "3.0.1"
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.Sinks.File.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
       "SharpCompress/0.23.0": {
         "dependencies": {
           "System.Text.Encoding.CodePages": "4.5.1"
@@ -1491,6 +1547,28 @@
         }
       },
       "System.Diagnostics.DiagnosticSource/4.5.0": {},
+      "System.Diagnostics.EventLog/6.0.0": {
+        "runtime": {
+          "lib/net6.0/System.Diagnostics.EventLog.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win/lib/net6.0/System.Diagnostics.EventLog.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
       "System.Diagnostics.FileVersionInfo/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2",
@@ -2231,6 +2309,13 @@
       "path": "aspectinjector/2.6.0",
       "hashPath": "aspectinjector.2.6.0.nupkg.sha512"
     },
+    "Castle.Core/5.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
+      "path": "castle.core/5.1.1",
+      "hashPath": "castle.core.5.1.1.nupkg.sha512"
+    },
     "coverlet.collector/3.2.0": {
       "type": "package",
       "serviceable": true,
@@ -2777,6 +2862,13 @@
       "path": "mongodb.libmongocrypt/1.0.0",
       "hashPath": "mongodb.libmongocrypt.1.0.0.nupkg.sha512"
     },
+    "Moq/4.20.69": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8P/oAUOL8ZVyXnzBBcgdhTsOD1kQbAWfOcMI7KDQO3HqQtzB/0WYLdnMa4Jefv8nu/MQYiiG0IuoJdvG0v0Nig==",
+      "path": "moq/4.20.69",
+      "hashPath": "moq.4.20.69.nupkg.sha512"
+    },
     "NETStandard.Library/2.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2959,6 +3051,27 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.2",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512"
     },
+    "Serilog/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-E4UmOQ++eNJax1laE+lws7E3zbhKgHsGJbO7ra0yE5smUh+5FfUPIKKBxM3MO1tK4sgpQke6/pLReDxIc/ggNw==",
+      "path": "serilog/3.0.1",
+      "hashPath": "serilog.3.0.1.nupkg.sha512"
+    },
+    "Serilog.Sinks.Console/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-K6N5q+5fetjnJPvCmkWOpJ/V8IEIoMIB1s86OzBrbxwTyHxdx3pmz4H+8+O/Dc/ftUX12DM1aynx/dDowkwzqg==",
+      "path": "serilog.sinks.console/4.1.0",
+      "hashPath": "serilog.sinks.console.4.1.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.File/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uwV5hdhWPwUH1szhO8PJpFiahqXmzPzJT/sOijH/kFgUx+cyoDTMM8MHD0adw9+Iem6itoibbUXHYslzXsLEAg==",
+      "path": "serilog.sinks.file/5.0.0",
+      "hashPath": "serilog.sinks.file.5.0.0.nupkg.sha512"
+    },
     "SharpCompress/0.23.0": {
       "type": "package",
       "serviceable": true,
@@ -3063,6 +3176,13 @@
       "sha512": "sha512-eIHRELiYDQvsMToML81QFkXEEYXUSUT2F28t1SGrevWqP+epFdw80SyAXIKTXOHrIEXReFOEnEr7XlGiC2GgOg==",
       "path": "system.diagnostics.diagnosticsource/4.5.0",
       "hashPath": "system.diagnostics.diagnosticsource.4.5.0.nupkg.sha512"
+    },
+    "System.Diagnostics.EventLog/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lcyUiXTsETK2ALsZrX+nWuHSIQeazhqPphLfaRxzdGaG93+0kELqpgEHtwWOlQe7+jSFnKwaCAgL4kjeZCQJnw==",
+      "path": "system.diagnostics.eventlog/6.0.0",
+      "hashPath": "system.diagnostics.eventlog.6.0.0.nupkg.sha512"
     },
     "System.Diagnostics.FileVersionInfo/4.3.0": {
       "type": "package",

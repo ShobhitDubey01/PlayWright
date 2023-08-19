@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.idea",
+    "\\bin",
+    "\\bin\\Debug",
+    "\\bin\\Debug\\net7.0",
+    "\\bin\\Debug\\net7.0\\.playwright",
+    "\\bin\\Debug\\net7.0\\.playwright\\node",
+    "\\bin\\Release",
+    "\\obj"
   ],
-  "SelectedNode": "\\newplaywright.sln",
   "PreviewInSolutionExplorer": false
 }
