@@ -1,0 +1,28 @@
+{
+  "uuid": "c713bfca-c77e-430d-ad06-2732f2ee527f-tc-0-1000",
+  "name": "newplaywright.Example.Post",
+  "children": [
+    "19fd1574-7689-4303-adfe-6de66c4fd937-tr-0-1005"
+  ],
+  "befores": [
+    {
+      "name": "setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1692432953922,
+      "stop": 1692432953922
+    }
+  ],
+  "afters": [],
+  "links": [],
+  "start": 1692432951116,
+  "stop": 1692432953926
+}

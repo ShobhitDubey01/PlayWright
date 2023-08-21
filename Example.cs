@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using NUnit.Allure.Core;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
+//using NUnit.Framework.Internal.Commands;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -19,33 +20,39 @@ namespace newplaywright
     [AllureNUnit]
     internal class Example
     {
-       
+
+        private Serilog.ILogger log;
       
-  
+        
+
+        [OneTimeSetUp]
+        public Task Setup()
+        {
+            log = new LoggerConfiguration()
+                   .WriteTo.Console()
+                   .CreateLogger();
+           
+        }
 
         [Test]
         [Category("crud")]
-        public async Task test1() {
-            var log = new LoggerConfiguration()
-                .WriteTo.Console()
-                .CreateLogger();
-           
+        public async Task Test1() {
+
             var playwright = await Playwright.CreateAsync();
             var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
             {
                 BaseURL = "https://reqres.in/"
 
-            }) ;
-
-           var response = await request.GetAsync("api/users?page=2");
+            });
+            var response = await request.GetAsync("api/users?page=2");
             var data=await response.TextAsync();
           
-            log.Information("Hello World");
+            log.Information("Hello");
         
         }
 
         [Test]
-        public async Task  test2() { 
+        public async Task  Test2() { 
            var playwright=await Playwright.CreateAsync();
             var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
             {
@@ -71,7 +78,7 @@ namespace newplaywright
         }
 
         [Test]
-        public async Task test3() { 
+        public async Task Test3() { 
         
             var playwright=await Playwright.CreateAsync();
             var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions(){
@@ -84,7 +91,7 @@ namespace newplaywright
         }
 
         [Test]
-        public async Task test4() { 
+        public async Task Test4() { 
         
         var playwright=await Playwright.CreateAsync();
             var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
@@ -134,7 +141,7 @@ namespace newplaywright
         }
 
         [Test]
-        public async Task test7() { 
+        public async Task Test7() { 
         var playwright=await Playwright.CreateAsync();
             var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
             {
@@ -146,7 +153,7 @@ namespace newplaywright
         }
 
         [Test]
-        public async Task test5()
+        public async Task Test5()
         {
 
             var playwright = await Playwright.CreateAsync();
@@ -177,7 +184,7 @@ namespace newplaywright
         }
 
         [Test]
-        public async Task authTest() {
+        public async Task AuthTest() {
             const String AuthToken = "a6fc195dd60e618c4f0d37e15ae429917d090fe68d9ca16fd847681cddc448fa";
             var playwright = await Playwright.CreateAsync();
             
