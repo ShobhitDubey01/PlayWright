@@ -37,7 +37,6 @@ steps:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
       **\*\Debug\net7.0\newplaywright*.dll
-       !**\*TestAdapter.dll
          !**\obj\**
       
 
