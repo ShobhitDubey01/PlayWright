@@ -37,6 +37,6 @@ steps:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
       **\*newplaywright*.dll
-      !**\obj\**
+       !**\*TestAdapter.dll
 
     
