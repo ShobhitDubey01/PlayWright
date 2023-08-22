@@ -29,15 +29,15 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+
+
+    
 - task: VSTest@3
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      **\*newplaywright*.dll
-       !**\*TestAdapter.dll
-        !**\obj\**
-        searchFolder: '$(System.DefaultWorkingDirectory)'
+      **\*\Debug\net7.0\newplaywright*.dll
+         !**\obj\**
+      
+
+    
