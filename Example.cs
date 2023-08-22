@@ -17,34 +17,35 @@ using System.Threading.Tasks;
 
 namespace newplaywright
 {
+    [TestFixture]
     [AllureNUnit]
     internal class Example
     {
 
         private Serilog.ILogger log;
-      
-        
+        private IPlaywright playwright;
+        private IAPIRequestContext context;
 
-        [OneTimeSetUp]
-        public Task Setup()
+        [SetUp]
+        public async Task Setup()
         {
             log = new LoggerConfiguration()
                    .WriteTo.Console()
                    .CreateLogger();
-           
+            playwright = await Playwright.CreateAsync();
+            context = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
+            {
+                BaseURL = "https://reqres.in/"
+            });
+
         }
 
         [Test]
         [Category("crud")]
         public async Task Test1() {
 
-            var playwright = await Playwright.CreateAsync();
-            var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
-            {
-                BaseURL = "https://reqres.in/"
-
-            });
-            var response = await request.GetAsync("api/users?page=2");
+           
+            var response = await context.GetAsync("api/users?page=2");
             var data=await response.TextAsync();
           
             log.Information("Hello");
@@ -53,14 +54,9 @@ namespace newplaywright
 
         [Test]
         public async Task  Test2() { 
-           var playwright=await Playwright.CreateAsync();
-            var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
-            {
-                BaseURL = "https://reqres.in/"
+          
 
-            });
-
-            var response = await request.PostAsync("api/users",new APIRequestContextOptions()
+            var response = await context.PostAsync("api/users",new APIRequestContextOptions()
             {
               DataObject = new
               {
@@ -80,12 +76,8 @@ namespace newplaywright
         [Test]
         public async Task Test3() { 
         
-            var playwright=await Playwright.CreateAsync();
-            var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions(){
-                BaseURL = "https://reqres.in/"
-            });
-
-            var response = await request.DeleteAsync("api/users/2");
+           
+            var response = await context.DeleteAsync("api/users/2");
             var data =await response.TextAsync();
             Console.WriteLine($"response: {response.Status}");
         }
@@ -93,13 +85,9 @@ namespace newplaywright
         [Test]
         public async Task Test4() { 
         
-        var playwright=await Playwright.CreateAsync();
-            var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
-            {
-                BaseURL = "https://reqres.in/"
-            });
+       
 
-            var response = await request.GetAsync("api/users/2");
+            var response = await context.GetAsync("api/users/2");
             String data = await response.TextAsync();
             Console.WriteLine($"Response Status: {response.Status}");
            // var jsonobj = System.Text.Json.JsonDocument.Parse(data).RootElement;
@@ -115,23 +103,12 @@ namespace newplaywright
 
         [Test] 
         public async Task Post() {
-            var playwriter = await Playwright.CreateAsync();
-            var request = await playwriter.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
-                { 
-           BaseURL= "https://petstore.swagger.io/"
-            });
-
-
-
-            var response = await request.GetAsync("v2/pet/findByStatus?status=available");
-
+            var response = await context.GetAsync("v2/pet/findByStatus?status=available");
             var data = await response.TextAsync();
-            
            // Console.WriteLine(data);
             var headers = response.Headers;
             foreach (var header in headers) {
-                Console.WriteLine($"Header {header.Key}={header.Value}");
-            
+                Console.WriteLine($"Header {header.Key}={header.Value}");  
             }
             var cookies = response.Headers.Where(header => header.Key.Equals("Set-Cookie"));
             foreach (var cookie in cookies)
@@ -140,29 +117,12 @@ namespace newplaywright
             }
         }
 
-        [Test]
-        public async Task Test7() { 
-        var playwright=await Playwright.CreateAsync();
-            var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
-            {
-                BaseURL = "https://reqres.in/"
-
-            }) ;
-
-        
-        }
+      
 
         [Test]
         public async Task Test5()
         {
-
-            var playwright = await Playwright.CreateAsync();
-            var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
-            {
-                BaseURL = "https://reqres.in/"
-            });
-
-            var response = await request.GetAsync("api/users");
+            var response = await context.GetAsync("api/users");
             String data = await response.TextAsync();
           //  Console.WriteLine(data);
             Console.WriteLine($"Response Status: {response.Status}");
@@ -183,20 +143,15 @@ namespace newplaywright
             
         }
 
-        [Test]
+        [Test,Order(3)]
         public async Task AuthTest() {
             const String AuthToken = "a6fc195dd60e618c4f0d37e15ae429917d090fe68d9ca16fd847681cddc448fa";
-            var playwright = await Playwright.CreateAsync();
             
-            var request = await playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions()
-            {
-                BaseURL = "https://gorest.co.in/"
-            });
 
             var headers = new Dictionary<String, String> {
                 ["Authorization"]=$"Bearer {AuthToken}"
             };
-            var response = await request.PostAsync("/public/v2/users/2627/posts", new APIRequestContextOptions()
+            var response = await context.PostAsync("/public/v2/users/2627/posts", new APIRequestContextOptions()
             {
                 DataObject = new
                 {
@@ -212,6 +167,14 @@ namespace newplaywright
            
 
         }
+
+        [TearDown]
+        public async Task teardown() { 
+        
+        context.DisposeAsync();
+        
+        }
+
 
 
     }

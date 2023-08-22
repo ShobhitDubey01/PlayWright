@@ -1,8 +1,0 @@
-Header date=Fri, 18 Aug 2023 16:33:26 GMT
-Header content-type=application/json
-Header transfer-encoding=chunked
-Header connection=close
-Header access-control-allow-origin=*
-Header access-control-allow-methods=GET, POST, DELETE, PUT
-Header access-control-allow-headers=Content-Type, api_key, Authorization
-Header server=Jetty(9.2.9.v20150224)

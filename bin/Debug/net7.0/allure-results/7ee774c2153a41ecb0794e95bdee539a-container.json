@@ -1,0 +1,44 @@
+{
+  "uuid": "82e81bb1-2ba7-40b8-b979-071dddc655c0-tc-0-1002",
+  "name": "newplaywright.Example.Test2",
+  "children": [
+    "97d4ca14-8ca6-4f06-aa9d-4a2e175ff439-tr-0-1004"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1692723065833,
+      "stop": 1692723065833
+    }
+  ],
+  "afters": [
+    {
+      "name": "teardown",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1692723065833,
+      "stop": 1692723065833
+    }
+  ],
+  "links": [],
+  "start": 1692723063618,
+  "stop": 1692723065837
+}
