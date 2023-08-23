@@ -29,17 +29,9 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-
-
-    
-- task: VSTest@3
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*\Debug\net7.0\newplaywright*.dll
-         !**\obj\**
-      
+  
 - task: CmdLine@2
   inputs:
-    script: 'dotnet test'
+   script: 'dotnet test'
+
     
