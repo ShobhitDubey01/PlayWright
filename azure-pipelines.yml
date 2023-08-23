@@ -39,5 +39,10 @@ steps:
       **\*\Debug\net7.0\newplaywright*.dll
          !**\obj\**
       
-
+- task: DotNetCoreCLI@2
+  displayName: 'Install dotnetsay'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'dotnet test'
     
