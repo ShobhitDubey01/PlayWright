@@ -1,5 +1,6 @@
 # ASP.NET Core (.NET Framework)
 
+
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
@@ -30,5 +31,12 @@ steps:
     configuration: '$(buildConfiguration)'
 
   
-
+- task: VSTest@3
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*\Debug\net7.0\newplaywright*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
     
