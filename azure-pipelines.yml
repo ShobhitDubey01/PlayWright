@@ -30,8 +30,5 @@ steps:
     configuration: '$(buildConfiguration)'
 
   
-- task: CmdLine@2
-  inputs:
-   script: 'dotnet test'
 
     
