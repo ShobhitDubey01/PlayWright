@@ -52,3 +52,13 @@ steps:
   env:
     allureVersion: $(allureVersion)
 
+
+- script: |
+    # Generate Allure report
+    $(Agent.ToolsDirectory)\allure\bin\allure generate -c -o $(Build.ArtifactStagingDirectory)/allure-report
+  displayName: 'Generate Allure Report'
+
+- powershell: |
+    # Serve Allure report using 'allure serve'
+    $(Agent.ToolsDirectory)\allure\bin\allure serve $(Build.ArtifactStagingDirectory)/allure-report
+  displayName: 'Serve Allure Report'
