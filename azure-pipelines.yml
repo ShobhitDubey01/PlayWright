@@ -52,14 +52,3 @@ steps:
   env:
     allureVersion: $(allureVersion)
 
-- powershell: |
-    # Generate Allure report
-    $(Agent.ToolsDirectory)\allure\bin\allure.bat generate -c -o $(System.DefaultWorkingDirectory)\allure-report
-
-  displayName: 'Generate Allure Report'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(System.DefaultWorkingDirectory)\allure-report'
-    artifactName: 'allure-report'
-    publishLocation: 'Container'
