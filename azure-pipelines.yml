@@ -52,8 +52,7 @@ steps:
   env:
     allureVersion: $(allureVersion)
     
-- powershell: |
-   inputs:
-    script: 'allure generate'
-   # workingDirectory: 'bin\Debug\net7.0' 
-  displayName: 'Generate Allure Report'   
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Allure generate'
