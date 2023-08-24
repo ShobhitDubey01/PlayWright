@@ -1,0 +1,67 @@
+{
+  "uuid": "ee328f40-d36d-4dc1-bb50-d0931de9f048-tr-0-1004",
+  "historyId": "newplaywright.ApiTest.createUser",
+  "fullName": "newplaywright.ApiTest.createUser",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-17VQ6MC"
+    },
+    {
+      "name": "package",
+      "value": "newplaywright"
+    },
+    {
+      "name": "testMethod",
+      "value": "createUser"
+    },
+    {
+      "name": "testClass",
+      "value": "ApiTest"
+    }
+  ],
+  "links": [],
+  "name": "createUser",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "System.ArgumentException : Accessed JObject values with invalid key value: 0. Object property name expected.",
+    "trace": "   at Newtonsoft.Json.Linq.JObject.get_Item(Object key)\r\n   at newplaywright.ApiTest.createUser() in C:\\Users\\ssb\\source\\repos\\PlayWrightApi\\ApiTest.cs:line 72\r\n   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()\r\n   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)\r\n   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)\r\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.RunTestMethod(TestExecutionContext context)\r\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.Execute(TestExecutionContext context)\r\n   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.<>c__DisplayClass1_0.<Execute>b__0()\r\n   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "createUser",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "System.ArgumentException : Accessed JObject values with invalid key value: 0. Object property name expected.",
+        "trace": "   at Newtonsoft.Json.Linq.JObject.get_Item(Object key)\r\n   at newplaywright.ApiTest.createUser() in C:\\Users\\ssb\\source\\repos\\PlayWrightApi\\ApiTest.cs:line 72\r\n   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()\r\n   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)\r\n   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)\r\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.RunTestMethod(TestExecutionContext context)\r\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.Execute(TestExecutionContext context)\r\n   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.<>c__DisplayClass1_0.<Execute>b__0()\r\n   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "0474fd3eba89477599b6bcb17a94efc3-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1692733261123,
+      "stop": 1692733262999
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1692733261123,
+  "stop": 1692733263001
+}

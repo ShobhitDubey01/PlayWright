@@ -1,0 +1,64 @@
+{
+  "uuid": "7e6f3627-9cc0-47e3-bbcc-8d59224e9178-tr-0-1018",
+  "historyId": "newplaywright.GoRest.PostData",
+  "fullName": "newplaywright.GoRest.PostData",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-17VQ6MC"
+    },
+    {
+      "name": "package",
+      "value": "newplaywright"
+    },
+    {
+      "name": "testMethod",
+      "value": "PostData"
+    },
+    {
+      "name": "testClass",
+      "value": "GoRest"
+    }
+  ],
+  "links": [],
+  "name": "PostData",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "PostData"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "PostData",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "aab59c0c49ad4b458add07a22c2dff29-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1692891817054,
+      "stop": 1692891818829
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1692891817054,
+  "stop": 1692891818832
+}

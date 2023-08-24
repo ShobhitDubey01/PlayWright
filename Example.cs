@@ -7,12 +7,7 @@ using NUnit.Framework;
 using NUnit.Framework.Internal;
 //using NUnit.Framework.Internal.Commands;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.JavaScript;
-using System.Text;
-using System.Threading.Tasks;
+
 
 
 namespace newplaywright
@@ -76,7 +71,7 @@ namespace newplaywright
         [Test]
         public async Task Test3() { 
         
-           
+ 
             var response = await context.DeleteAsync("api/users/2");
             var data =await response.TextAsync();
             Console.WriteLine($"response: {response.Status}");
@@ -87,17 +82,17 @@ namespace newplaywright
         
        
 
-            var response = await context.GetAsync("api/users/2");
-            String data = await response.TextAsync();
-            Console.WriteLine($"Response Status: {response.Status}");
-           // var jsonobj = System.Text.Json.JsonDocument.Parse(data).RootElement;
-          //  dynamic obj=JsonConvert.DeserializeObject(data);
+         var response = await context.GetAsync("api/users/2");
+         String data = await response.TextAsync();
+         Console.WriteLine($"Response Status: {response.Status}");
+         // var jsonobj = System.Text.Json.JsonDocument.Parse(data).RootElement;
+         //  dynamic obj=JsonConvert.DeserializeObject(data);
           JObject obj=JObject.Parse(data);  
           String email = (String)obj["first_name"];
 
-            // Assert.
-       //   Console.WriteLine(email);  
-         //  Console.WriteLine(data);
+        // Assert.
+        //   Console.WriteLine(email);  
+        //  Console.WriteLine(data);
 
         }
 
@@ -124,7 +119,7 @@ namespace newplaywright
         {
             var response = await context.GetAsync("api/users");
             String data = await response.TextAsync();
-          //  Console.WriteLine(data);
+           //  Console.WriteLine(data);
             Console.WriteLine($"Response Status: {response.Status}");
             //  dynamic obj=JsonConvert.DeserializeObject(data);
 
@@ -164,8 +159,6 @@ namespace newplaywright
             }) ;
 
             Console.WriteLine(response.Status);
-           
-
         }
 
         [TearDown]
@@ -174,8 +167,5 @@ namespace newplaywright
         context.DisposeAsync();
         
         }
-
-
-
     }
 }

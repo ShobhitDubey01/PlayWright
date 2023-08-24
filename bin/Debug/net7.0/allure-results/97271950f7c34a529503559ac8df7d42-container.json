@@ -1,0 +1,28 @@
+{
+  "uuid": "b09b53d4-8327-4607-8885-763f027ff24e-tc-0-1013",
+  "name": "newplaywright.GoRest.posts",
+  "children": [
+    "a67b6ceb-b667-4aeb-ad6c-42cb77b9fa3b-tr-0-1015"
+  ],
+  "befores": [
+    {
+      "name": "setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1692895790014,
+      "stop": 1692895790014
+    }
+  ],
+  "afters": [],
+  "links": [],
+  "start": 1692895788470,
+  "stop": 1692895790016
+}

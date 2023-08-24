@@ -9,6 +9,7 @@
       "newplaywright/1.0.0": {
         "dependencies": {
           "ExtentReports": "4.1.0",
+          "Faker.Net": "2.0.154",
           "MSTest.TestFramework": "3.1.1",
           "Microsoft.NET.Test.Sdk": "17.5.0",
           "Microsoft.Playwright.NUnit": "1.36.0",
@@ -84,6 +85,22 @@
           "lib/netstandard2.0/ExtentReports.dll": {
             "assemblyVersion": "4.1.0.0",
             "fileVersion": "4.1.0.0"
+          }
+        }
+      },
+      "Faker.Net/2.0.154": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/net60/Faker.Net.6.0.dll": {
+            "assemblyVersion": "2.0.154.0",
+            "fileVersion": "2.0.154.0"
+          }
+        },
+        "resources": {
+          "lib/net60/de-DE/Faker.Net.6.0.resources.dll": {
+            "locale": "de-DE"
           }
         }
       },
@@ -1196,7 +1213,7 @@
       },
       "MongoDB.Bson/2.10.0": {
         "dependencies": {
-          "NETStandard.Library": "2.0.0",
+          "NETStandard.Library": "2.0.3",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Diagnostics.Process": "4.1.0",
           "System.Dynamic.Runtime": "4.3.0",
@@ -1215,7 +1232,7 @@
           "MongoDB.Bson": "2.10.0",
           "MongoDB.Driver.Core": "2.10.0",
           "MongoDB.Libmongocrypt": "1.0.0",
-          "NETStandard.Library": "2.0.0",
+          "NETStandard.Library": "2.0.3",
           "System.ComponentModel.TypeConverter": "4.1.0",
           "System.Linq.Queryable": "4.0.1"
         },
@@ -1231,7 +1248,7 @@
           "DnsClient": "1.2.0",
           "MongoDB.Bson": "2.10.0",
           "MongoDB.Libmongocrypt": "1.0.0",
-          "NETStandard.Library": "2.0.0",
+          "NETStandard.Library": "2.0.3",
           "SharpCompress": "0.23.0",
           "System.Collections.Specialized": "4.0.1",
           "System.Diagnostics.TextWriterTraceListener": "4.0.0",
@@ -1250,7 +1267,7 @@
       },
       "MongoDB.Libmongocrypt/1.0.0": {
         "dependencies": {
-          "NETStandard.Library": "2.0.0"
+          "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "lib/netstandard1.5/MongoDB.Libmongocrypt.dll": {
@@ -1319,7 +1336,7 @@
           }
         }
       },
-      "NETStandard.Library/2.0.0": {
+      "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2"
         }
@@ -1342,7 +1359,7 @@
       },
       "NUnit/3.13.3": {
         "dependencies": {
-          "NETStandard.Library": "2.0.0"
+          "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/nunit.framework.dll": {
@@ -2396,6 +2413,13 @@
       "path": "extentreports/4.1.0",
       "hashPath": "extentreports.4.1.0.nupkg.sha512"
     },
+    "Faker.Net/2.0.154": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pkabhT7wxNR1gkPO6ga77XdeqBblaE8a1oY47eMGGvM7DMZ9S8ARZrKkRWaPUNjGCOqtH3oeQSMuEPxd98ir4w==",
+      "path": "faker.net/2.0.154",
+      "hashPath": "faker.net.2.0.154.nupkg.sha512"
+    },
     "Microsoft.AspNetCore/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -2935,12 +2959,12 @@
       "path": "mstest.testframework/3.1.1",
       "hashPath": "mstest.testframework.3.1.1.nupkg.sha512"
     },
-    "NETStandard.Library/2.0.0": {
+    "NETStandard.Library/2.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
-      "path": "netstandard.library/2.0.0",
-      "hashPath": "netstandard.library.2.0.0.nupkg.sha512"
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",

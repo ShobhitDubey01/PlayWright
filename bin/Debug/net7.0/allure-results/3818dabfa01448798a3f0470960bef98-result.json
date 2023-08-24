@@ -1,0 +1,64 @@
+{
+  "uuid": "fc946a98-9b4e-4dec-88c6-8dc7a9498c53-tr-0-1003",
+  "historyId": "newplaywright.ApiTest.getUserByLogout",
+  "fullName": "newplaywright.ApiTest.getUserByLogout",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-17VQ6MC"
+    },
+    {
+      "name": "package",
+      "value": "newplaywright"
+    },
+    {
+      "name": "testMethod",
+      "value": "getUserByLogout"
+    },
+    {
+      "name": "testClass",
+      "value": "ApiTest"
+    }
+  ],
+  "links": [],
+  "name": "getUserByLogout",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "getUserByLogout"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "getUserByLogout",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "560e68508bef4040a86d0eb308b4844e-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1692896093613,
+      "stop": 1692896096191
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1692896093613,
+  "stop": 1692896096191
+}

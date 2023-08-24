@@ -1,0 +1,28 @@
+{
+  "uuid": "07ba4c16-83e9-403f-a2c3-c8ace03193bf-tc-0-1000",
+  "name": "newplaywright.ApiTest.createUser",
+  "children": [
+    "97a7666f-a033-4868-ac25-f40a0616367b-tr-0-1004"
+  ],
+  "befores": [
+    {
+      "name": "setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1692732591174,
+      "stop": 1692732591174
+    }
+  ],
+  "afters": [],
+  "links": [],
+  "start": 1692732589368,
+  "stop": 1692732591210
+}

@@ -1,0 +1,64 @@
+{
+  "uuid": "18e3c900-0776-4526-8ed1-6fe4f3d9f749-tr-0-1004",
+  "historyId": "newplaywright.ApiTest.createUser",
+  "fullName": "newplaywright.ApiTest.createUser",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-17VQ6MC"
+    },
+    {
+      "name": "package",
+      "value": "newplaywright"
+    },
+    {
+      "name": "testMethod",
+      "value": "createUser"
+    },
+    {
+      "name": "testClass",
+      "value": "ApiTest"
+    }
+  ],
+  "links": [],
+  "name": "createUser",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "createUser"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "createUser",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "69014a90cb8d47bb8d87dbd45ca3b381-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1692895762867,
+      "stop": 1692895764882
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1692895762866,
+  "stop": 1692895764885
+}

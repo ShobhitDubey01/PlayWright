@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)system.text.json\7.0.2\buildTransitive\net6.0\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\7.0.2\buildTransitive\net6.0\System.Text.Json.targets')" />
-    <Import Project="$(NuGetPackageRoot)netstandard.library\2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('$(NuGetPackageRoot)netstandard.library\2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
+    <Import Project="$(NuGetPackageRoot)netstandard.library\2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('$(NuGetPackageRoot)netstandard.library\2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
     <Import Project="$(NuGetPackageRoot)aspectinjector\2.6.0\buildTransitive\netstandard2.0\AspectInjector.targets" Condition="Exists('$(NuGetPackageRoot)aspectinjector\2.6.0\buildTransitive\netstandard2.0\AspectInjector.targets')" />
     <Import Project="$(NuGetPackageRoot)mstest.testframework\3.1.1\build\net6.0\MSTest.TestFramework.targets" Condition="Exists('$(NuGetPackageRoot)mstest.testframework\3.1.1\build\net6.0\MSTest.TestFramework.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.playwright\1.36.0\buildTransitive\Microsoft.Playwright.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.playwright\1.36.0\buildTransitive\Microsoft.Playwright.targets')" />

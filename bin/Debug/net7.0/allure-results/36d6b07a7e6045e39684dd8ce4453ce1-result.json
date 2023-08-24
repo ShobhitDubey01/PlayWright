@@ -1,0 +1,64 @@
+{
+  "uuid": "832e378b-99f5-4fda-9163-26dbfa57898d-tr-0-1016",
+  "historyId": "newplaywright.GoRest.comments",
+  "fullName": "newplaywright.GoRest.comments",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-17VQ6MC"
+    },
+    {
+      "name": "package",
+      "value": "newplaywright"
+    },
+    {
+      "name": "testMethod",
+      "value": "comments"
+    },
+    {
+      "name": "testClass",
+      "value": "GoRest"
+    }
+  ],
+  "links": [],
+  "name": "comments",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "comments"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "comments",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "3dd65ea0e40243ceb2734d8bbc433d24-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1692896482971,
+      "stop": 1692896484496
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1692896482971,
+  "stop": 1692896484496
+}
