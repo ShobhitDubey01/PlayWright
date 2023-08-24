@@ -15,7 +15,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  allureVersion: '2.14.0'  # Change this to the desired Allure version
+  allureVersion: '2.14.0'  
 
 steps:
 - task: NuGetToolInstaller@1
@@ -53,6 +53,6 @@ steps:
     allureVersion: $(allureVersion)
     
 - script: |
-    # Generate Allure report
-    $(Agent.ToolsDirectory)\allure\bin\allure generate -c -o $(Build.ArtifactStagingDirectory)/allure-report
+   
+    $(Agent.ToolsDirectory)\allure\bin\allure generate PlayWrightApi/bin/Debug/allure-report
   displayName: 'Generate Allure Report'   
