@@ -15,6 +15,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  allureVersion: '2.14.0'  # Change this to the desired Allure version
 
 steps:
 - task: NuGetToolInstaller@1
@@ -40,3 +41,25 @@ steps:
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
     
+- powershell: |
+    # Download Allure command-line tool
+    $allureUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip"
+    $allureZip = "$(Agent.ToolsDirectory)\allure.zip"
+    Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
+    Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
+
+  displayName: 'Download Allure CLI'
+  env:
+    allureVersion: $(allureVersion)
+
+- powershell: |
+    # Generate Allure report
+    $(Agent.ToolsDirectory)\allure\bin\allure.bat generate -c -o $(System.DefaultWorkingDirectory)\allure-report
+
+  displayName: 'Generate Allure Report'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(System.DefaultWorkingDirectory)\allure-report'
+    artifactName: 'allure-report'
+    publishLocation: 'Container'
