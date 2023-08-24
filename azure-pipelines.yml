@@ -41,16 +41,17 @@ steps:
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
     
-- script: |
+- powershell: |
     # Download Allure command-line tool
-    wget https://github.com/allure-framework/allure2/release/download/2.14.0/allure-2.14.0.zip
-    unzip allure-2.14.0.zip
-    export PATH=$PATH:$(pwd)/allure-2.14.0/bin
-    displayName:'Install Allure'
+    $allureUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip"
+    $allureZip = "$(Agent.ToolsDirectory)\allure.zip"
+    Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
+    Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
 
+  displayName: 'Download Allure CLI'
   env:
     allureVersion: $(allureVersion)
-
+    
 - task: CmdLine@2
   inputs:
 
