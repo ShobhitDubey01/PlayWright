@@ -54,7 +54,7 @@ steps:
     
 - script: |
    
-    $(Agent.ToolsDirectory)\
+   # $(Agent.ToolsDirectory)\
 - task: CmdLine@2
   inputs:
     script: 'allure generate'
