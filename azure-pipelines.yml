@@ -54,5 +54,5 @@ steps:
     
 - script: |
    
-    $(Agent.ToolsDirectory)\allure\bin\allure generate PlayWrightApi/bin/Debug/allure-report
+    $(Agent.ToolsDirectory)\bin\allure generate 
   displayName: 'Generate Allure Report'   
