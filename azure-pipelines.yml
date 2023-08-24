@@ -58,5 +58,5 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'allure generate'
-    workingDirectory: 'bin\Debug\net7.0' 
+   # workingDirectory: 'bin\Debug\net7.0' 
   displayName: 'Generate Allure Report'   
