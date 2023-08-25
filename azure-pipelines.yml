@@ -53,8 +53,7 @@ steps:
 
       $allureExecutable = "$downloadPath\allure\bin\allure.bat"
       
-     
-      # Generate Allure report
-      
-      # Publish Allure report as an artifact
-      Publish-PipelineArtifact -Path "$(Agent.BuildDirectory)\allure-report" -Name "Allure-Report"
+- task: CmdLine@2
+  inputs:
+    script: 'allure report'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\'
