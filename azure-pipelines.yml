@@ -43,13 +43,7 @@ steps:
     searchFolder: '$(System.DefaultWorkingDirectory)'
     
 - powershell: |
-    # Download Allure command-line tool
-    $allureUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip"
-    $allureZip = "$(Agent.ToolsDirectory)\allure.zip"
-    Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
-    Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
-
-  displayName: 'Download Allure CLI'
-  env:
-    allureVersion: $(allureVersion)
-    
+    Invoke-WebRequest -Uri "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip" -OutFile allure.zip
+    Expand-Archive allure.zip -DestinationPath $(Agent.ToolsDirectory)/Allure
+    Remove-Item -Path allure.zip -Force
+  displayName: 'Install Allure'
