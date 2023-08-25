@@ -43,22 +43,21 @@ steps:
     searchFolder: '$(System.DefaultWorkingDirectory)'   
 
 - powershell: |
-    # Download Allure command-line tool
-    $allureUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip"
-    $allureZip = "$(Agent.ToolsDirectory)\allure.zip"
-    Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
-    Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
+      $allureVersion = "2.14.0"  
+      $downloadUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$allureVersion/allure-commandline-$allureVersion.zip"
+      $downloadPath = "$(Agent.BuildDirectory)\allure"
 
-  displayName: 'Download Allure CLI'
-  env:
-    allureVersion: $(allureVersion)
-- task: AllureGenerate@1
-  inputs:
-    
-    targetDir: '.\bin\Debug\net7.0\ '
+      New-Item -ItemType Directory -Path $downloadPath -Force
+      Invoke-WebRequest -Uri $downloadUrl -OutFile "$downloadPath\allure.zip"
+      Expand-Archive -Path "$downloadPath\allure.zip" -DestinationPath $downloadPath
 
+      $allureExecutable = "$downloadPath\allure\bin\allure.bat"
+      
+      Invoke-Expression "npm install"  # Example test command
+      Invoke-Expression "npm test"     # Example test command
 
-- task: AllureGenerate@1
-  inputs:
-    resultsDir: '.\bin\Debug\net7.0\'
-    targetDir: 'allure-report/$(Build.BuildNumber)'
+      # Generate Allure report
+      Invoke-Expression "$allureExecutable generate -c -o allure-report"
+
+      # Publish Allure report as an artifact
+      Publish-PipelineArtifact -Path "$(Agent.BuildDirectory)\allure-report" -Name "Allure-Report"
