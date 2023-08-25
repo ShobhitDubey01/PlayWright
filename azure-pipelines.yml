@@ -49,6 +49,10 @@ steps:
     Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
     Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
 
+  displayName: 'Download Allure CLI'
+  env:
+    allureVersion: $(allureVersion)
+    
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
