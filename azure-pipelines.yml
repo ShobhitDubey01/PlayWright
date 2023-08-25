@@ -40,11 +40,9 @@ steps:
       **\*\Debug\net7.0\newplaywright*.dll
       !**\*TestAdapter.dll
       !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    
-    
-- powershell: Install-Package -Name Allure.Commandline -Version $(allureVersion)
-  displayName: 'Install Allure'
+    searchFolder: '$(System.DefaultWorkingDirectory)'   
 
-
+- task: CmdLine@2
+  inputs:
+   script: 'echo ''$(System.DefaultWorkingDirectory)'''
 
