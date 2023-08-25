@@ -52,9 +52,7 @@ steps:
   displayName: 'Download Allure CLI'
   env:
     allureVersion: $(allureVersion)
-
-- script: |
-    
-    $D:\a\1\s\bin\Debug\net7.0\allure generate
-  displayName: 'Generate Allure Report'
-    
+- task: AllureGenerate@1
+  inputs:
+    resultsDir: '.\bin\Debug\net7.0\allure-results'
+    targetDir: 'allure-report\'
