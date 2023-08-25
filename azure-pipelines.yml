@@ -52,7 +52,7 @@ steps:
   displayName: 'Download and Install Allure'
 
 - script: |
-    ./allure/bin/allure generate <System.DefaultWorkingDirectory\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)/allure-report
+    ./allure/bin/allure generate <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)/allure-report
   displayName: 'Generate Allure Report'
 - task: PublishBuildArtifacts@1
   inputs:
