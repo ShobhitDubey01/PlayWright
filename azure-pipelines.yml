@@ -52,7 +52,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: '$(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0> -o $(Agent.BuildDirectory)/allure-report'
+    script: '$(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Agent.BuildDirectory)/allure-report'
 - script: |
     $(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0> -o $(Agent.BuildDirectory)/allure-report
   displayName: 'Generate Allure Report'
