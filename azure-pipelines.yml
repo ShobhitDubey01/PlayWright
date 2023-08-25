@@ -54,3 +54,9 @@ steps:
   inputs:
     filePath: 'allure generate'
     workingDirectory: '$(System.DefaultWorkingDirectory)/bin/Debug/net7.0'
+
+    
+- task: CmdLine@2
+  inputs:
+         script: 'allure generate'
+         workingDirectory: '$(System.DefaultWorkingDirectory)/bin/Debug/net7.0'
