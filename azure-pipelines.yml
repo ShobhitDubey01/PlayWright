@@ -51,8 +51,7 @@ steps:
 # Add the rest of your YAML configuration above
 
   
-- powershell: allure --version
-  displayName: 'Verify Allure Installation'
+
 
 - powershell: |
     allureConfigPath = Join-Path -Path "$(System.DefaultWorkingDirectory)" -ChildPath "allureConfig.json"
