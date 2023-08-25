@@ -42,14 +42,13 @@ steps:
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'   
 
-- script: |
-    $url = 'https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.zip'
-    $output = 'allure.zip'
-    Invoke-WebRequest -Uri $url -OutFile $output
+- powershell: |
+    # Download Allure command-line tool
+    $allureUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip"
+    $allureZip = "$(Agent.ToolsDirectory)\allure.zip"
+    Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
+    Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
 
-    Expand-Archive -Path $output -DestinationPath allure
-    Remove-Item $output
-  displayName: 'Download and Install Allure'
 
 - script: |
     ./allure/bin/allure generate <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)/allure-report
