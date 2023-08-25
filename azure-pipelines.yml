@@ -51,7 +51,7 @@ steps:
     Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
 
 - script: |
-    $(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure generate <$(System.DefaultWorkingDirectory)> -o $(Agent.BuildDirectory)/allure-report
+    $(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)> -o $(Agent.BuildDirectory)/allure-report
   displayName: 'Generate Allure Report'
 
 - script: |
