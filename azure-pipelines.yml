@@ -42,31 +42,9 @@ steps:
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
     
-
-
+    
 - powershell: Install-Package -Name Allure.Commandline -Version $(allureVersion)
   displayName: 'Install Allure'
 
-- powershell: allure --version
-  displayName: 'Verify Allure Installation'
-  env:
-    PATH: $(PATH):$(UserProfile)\.nuget\packages\allure.commandline\$(allureVersion)\tools
-
-- powershell: |
-    allureConfigPath = Join-Path -Path "$(System.DefaultWorkingDirectory)" -ChildPath "allureConfig.json"
-    @{
-      "allure": {
-        "version": "$(allureVersion)",
-        "configurationDirectory": "$(System.DefaultWorkingDirectory)"
-      }
-    } | ConvertTo-Json | Set-Content -Path $allureConfigPath
-  displayName: 'Create Allure Config'
-
-- powershell: $(UserProfile)\.nuget\packages\allure.commandline\$(allureVersion)\tools\allure generate --config $(System.DefaultWorkingDirectory)\allureConfig.json -o $(System.DefaultWorkingDirectory)\allure-report
-  displayName: 'Generate Allure Report'
-
-- publish: $(System.DefaultWorkingDirectory)\allure-report
-  artifact: allure-report
-  displayName: 'Publish Allure Report'
 
 
