@@ -50,8 +50,6 @@ steps:
   
 # Add the rest of your YAML configuration above
 
-- powershell: Install-Package -Name Allure.Commandline -Version $(allureVersion)
-  displayName: 'Install Allure'
   
 - powershell: allure --version
   displayName: 'Verify Allure Installation'
