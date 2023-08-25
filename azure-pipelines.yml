@@ -51,11 +51,11 @@ steps:
     Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
 
 - script: |
-    $(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure generate <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Agent.BuildDirectory)/allure-report
+    $(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure generate <$(System.DefaultWorkingDirectory)> -o $(Agent.BuildDirectory)/allure-report
   displayName: 'Generate Allure Report'
 
 - script: |
-    ./allure/bin/allure serve <$(System.DefaultWorkingDirectory)> -o $(Build.ArtifactStagingDirectory)/allure-report
+    ./allure/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)/allure-report
   displayName: 'Generate Allure Report'
 - task: PublishBuildArtifacts@1
   inputs:
