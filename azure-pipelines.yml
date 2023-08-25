@@ -54,5 +54,5 @@ steps:
     allureVersion: $(allureVersion)
 - task: AllureGenerate@1
   inputs:
-    resultsDir: 'allure-report\'
+    resultsDir: '.\bin\Debug\net7.0\allure-results'
     targetDir: '.\bin\Debug\net7.0\allure-results'
