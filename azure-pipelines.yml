@@ -41,6 +41,11 @@ steps:
       !**\*TestAdapter.dll
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'   
+   
+- task: CmdLine@2
+  inputs:
+      script: 'ls'
+      workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\'
 
 - powershell: |
     # Download Allure command-line tool
