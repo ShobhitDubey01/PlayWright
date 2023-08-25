@@ -55,4 +55,4 @@ steps:
 - task: AllureGenerate@1
   inputs:
     resultsDir: '.\bin\Debug\net7.0\allure-results'
-    targetDir: '.\bin\Debug\net7.0\allure-results'
+    targetDir: '.\bin\Debug\net7.0\ '
