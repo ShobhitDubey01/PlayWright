@@ -53,4 +53,4 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'allure generate'
-    workingDirectory: '/bin/Debug/net7.0'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/bin/Debug/net7.0'
