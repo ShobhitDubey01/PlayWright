@@ -56,3 +56,9 @@ steps:
   inputs:
     
     targetDir: '.\bin\Debug\net7.0\ '
+
+
+- task: AllureGenerate@1
+  inputs:
+    resultsDir: '.\bin\Debug\net7.0\'
+    targetDir: 'allure-report/$(Build.BuildNumber)'
