@@ -49,12 +49,6 @@ steps:
     Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
     Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
 
-
-- task: PowerShell@2
-  inputs:
-    filePath: 'allure generate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/bin/Debug/net7.0'
-
     
 - task: CmdLine@2
   inputs:
