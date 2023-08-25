@@ -47,6 +47,12 @@ steps:
       script: 'ls'
       workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\'
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      cd $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\
+      allure generate
+
 - powershell: |
     # Download Allure command-line tool
     $allureUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip"
