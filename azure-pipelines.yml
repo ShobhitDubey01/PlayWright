@@ -49,10 +49,10 @@ steps:
     $allureZip = "$(Agent.ToolsDirectory)\allure.zip"
     Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
     Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
-
 - task: PowerShell@2
   inputs:
-    filePath: '$(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Agent.BuildDirectory)/allure-report'
+    targetType: 'inline'
+    script: '$(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Agent.BuildDirectory)/allure-report'
 - task: CmdLine@2
   inputs:
     script: '$(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Agent.BuildDirectory)/allure-report'
