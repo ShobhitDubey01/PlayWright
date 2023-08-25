@@ -55,6 +55,6 @@ steps:
 
 - script: |
     
-    $D:\a\1\s\bin\Debug\net7.0\allure generate -c -o D:\a\1\s\bin\Debug\net7.0\
+    $D:\a\1\s\bin\Debug\net7.0\allure generate
   displayName: 'Generate Allure Report'
     
