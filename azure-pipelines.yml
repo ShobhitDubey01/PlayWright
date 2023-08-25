@@ -42,16 +42,6 @@ steps:
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'   
    
-- task: CmdLine@2
-  inputs:
-      script: 'ls'
-      workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\'
-
-- task: CmdLine@2
-  inputs:
-    script: |
-      cd $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\
-      allure generate
 
 - powershell: |
     # Download Allure command-line tool
@@ -65,7 +55,7 @@ steps:
   displayName: 'Generate Allure Report'
 
 - script: |
-    ./allure/bin/allure generate <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)/allure-report
+    ./allure/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)/allure-report
   displayName: 'Generate Allure Report'
 - task: PublishBuildArtifacts@1
   inputs:
