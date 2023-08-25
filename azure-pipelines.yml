@@ -48,26 +48,9 @@ steps:
     Remove-Item -Path allure.zip -Force
   displayName: 'Install Allure'
   
-# Add the rest of your YAML configuration above
-
-  
-
-
-- powershell: |
-    allureConfigPath = Join-Path -Path "$(System.DefaultWorkingDirectory)" -ChildPath "allureConfig.json"
-    @{
-      "allure": {
-        "version": "$(allureVersion)",
-        "configurationDirectory": "$(System.DefaultWorkingDirectory)"
-      }
-    } | ConvertTo-Json | Set-Content -Path $allureConfigPath
-  displayName: 'Create Allure Config'
-
 - powershell: allure generate --config $(System.DefaultWorkingDirectory)\allureConfig.json -o $(System.DefaultWorkingDirectory)\allure-report
   displayName: 'Generate Allure Report'
 
 - publish: $(System.DefaultWorkingDirectory)\allure-report
   artifact: allure-report
   displayName: 'Publish Allure Report'
-  
-# Continue with the rest of your YAML configuration below
