@@ -1,6 +1,7 @@
 # ASP.NET Core (.NET Framework)
 
 
+
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
@@ -52,7 +53,7 @@ steps:
   env:
     allureVersion: $(allureVersion)
     
-- task: PowerShell@2
+- task: AllureGenerate@1
   inputs:
-    targetType: 'inline'
-    script: 'Allure generate'
+    resultsDir: 'allure-results'
+    targetDir: 'allure-report/$(Build.BuildNumber)'
