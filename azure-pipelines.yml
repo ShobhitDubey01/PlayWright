@@ -43,8 +43,20 @@ steps:
     searchFolder: '$(System.DefaultWorkingDirectory)'   
 
 - script: |
-    wget -O allure.zip https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.zip
-    mkdir allure
-    Expand-Archive -Path allure.zip -DestinationPath allure
+    $url = 'https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.zip'
+    $output = 'allure.zip'
+    Invoke-WebRequest -Uri $url -OutFile $output
+
+    Expand-Archive -Path $output -DestinationPath allure
+    Remove-Item $output
   displayName: 'Download and Install Allure'
-  
+
+- script: |
+    ./allure/bin/allure generate <System.DefaultWorkingDirectory\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)/allure-report
+  displayName: 'Generate Allure Report'
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: $(Build.ArtifactStagingDirectory)/allure-report
+    artifactName: 'allure-report'
+    publishLocation: 'Container'
+  displayName: 'Publish Allure Report'
