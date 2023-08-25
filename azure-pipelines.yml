@@ -55,6 +55,6 @@ steps:
 
 - script: |
     
-    $(Agent.ToolsDirectory)\allure\bin\allure generate -c -o $(Build.ArtifactStagingDirectory)/allure-report
+    $(Agent.ToolsDirectory)\allure\bin\allure generate -c -o $(System.DefaultWorkingDirectory)bin/Debug/net7.0
   displayName: 'Generate Allure Report'
     
