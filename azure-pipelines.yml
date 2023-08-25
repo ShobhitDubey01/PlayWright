@@ -42,19 +42,9 @@ steps:
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'   
 
-- powershell: |
-      $allureVersion = "2.14.0"  
-      $downloadUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$allureVersion/allure-commandline-$allureVersion.zip"
-      $downloadPath = "$(Agent.BuildDirectory)\allure"
-
-      New-Item -ItemType Directory -Path $downloadPath -Force
-      Invoke-WebRequest -Uri $downloadUrl -OutFile "$downloadPath\allure.zip"
-      Expand-Archive -Path "$downloadPath\allure.zip" -DestinationPath $downloadPath
-
-      $allureExecutable = "$downloadPath\allure\bin\allure.bat"
-      
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'allure generate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\'
+- script: |
+    wget -O allure.zip https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.zip
+    mkdir allure
+    Expand-Archive -Path allure.zip -DestinationPath allure
+  displayName: 'Download and Install Allure'
+  
