@@ -53,4 +53,4 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: '$(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\>'
+    $(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0> -o $(Agent.BuildDirectory)/allure-report
