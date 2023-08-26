@@ -52,5 +52,8 @@ steps:
     Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
 
    
-    .//allure-2.14.0/bin/allure generate $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results -o $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results
-    displayName:'Generate Allure Report'
+    - task: CmdLine@2
+      inputs:
+        script: |
+          .//allure-2.14.0/bin/allure generate $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results -o $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results
+              displayName:'Generate Allure Report'
