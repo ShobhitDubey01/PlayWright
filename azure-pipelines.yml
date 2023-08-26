@@ -32,6 +32,12 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+
+- task: CmdLine@2
+  inputs:
+    script: |
+        echo "$(Pipeline.Workspace)"
+        tree $(Pipeline.Workspace)
   
 - task: VSTest@3
   inputs:
@@ -49,8 +55,3 @@ steps:
     $allureZip = "$(Agent.ToolsDirectory)\allure.zip"
     Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
     Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
-- task: CmdLine@2
-  inputs:
-    script: |
-        echo "$(Pipeline.Workspace)"
-        tree $(Pipeline.Workspace)
