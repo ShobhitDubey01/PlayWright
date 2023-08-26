@@ -42,12 +42,32 @@ steps:
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'   
    
-- task: CmdLine@2
-  -script: |
-     wget htttps://github.com/allure-framework/allure2/release/download/2.14.0/allure-2.14.0.zip
-     export PATh=$PATH:$(pwd)/allure-2.14.0/bin
-     displayName:'Install Allure'
 
-  -script: |
-    .//allure-2.14.0/bin/allure generate $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results -o $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results
-    displayName:'Generate Allure Report'
+- powershell: |
+    # Download Allure command-line tool
+    $allureUrl = "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip"
+    $allureZip = "$(Agent.ToolsDirectory)\allure.zip"
+    Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
+    Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: '$(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve \bin\Debug\net7.0\>'
+- task: CmdLine@2
+  inputs:
+
+
+    script: '$(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Agent.BuildDirectory)/allure-report'
+- script: |
+    $(Agent.ToolsDirectory)/allure-commandline/allure-2.14.0/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0> -o $(Agent.BuildDirectory)/allure-report
+  displayName: 'Generate Allure Report'
+
+- script: |
+    ./allure/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)/allure-report
+  displayName: 'Generate Allure Report'
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: $(Build.ArtifactStagingDirectory)/allure-report
+    artifactName: 'allure-report'
+    publishLocation: 'Container'
+  displayName: 'Publish Allure Report'
