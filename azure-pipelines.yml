@@ -33,12 +33,7 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
-- task: CmdLine@2
-  inputs:
-    script: |
-        echo "$(Pipeline.Workspace)"
-        tree $(Pipeline.Workspace)
-  
+
 - task: VSTest@3
   inputs:
     testSelector: 'testAssemblies'
