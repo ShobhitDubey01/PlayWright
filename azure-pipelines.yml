@@ -55,6 +55,4 @@ steps:
       $env:PATH += ";$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin"
       displayName: 'Install Allure CLI'                                                    
      
-      - task: CmdLine@2
-        inputs:
-          script: 'allure'
+     
