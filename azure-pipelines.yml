@@ -69,6 +69,6 @@ steps:
     publishLocation: Container
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/\bin\Debug\net7.0'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/s'
     ArtifactName: 'PlaywrightApi'
     publishLocation: Container
