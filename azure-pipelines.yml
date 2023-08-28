@@ -58,7 +58,7 @@ steps:
     
     #dotnet test newplaywright.sln
     # allure generate .$(System.DefaultWorkingDirectory)bin\Debug\net7.0 --clean -o ./allure-report
-    &  "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" generate ./\bin\Debug\net7.0\ --clean -o ./allure-report
+    &  "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" generate ./\bin\Debug\net7.0\allure-report --clean -o ./allure-report
    #  &  "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" open ./allure-report
   displayName: 'Run Tests and Generate Allure Report'
     
@@ -66,4 +66,10 @@ steps:
 - task: CmdLine@2
   inputs:
       script: 'ls'
-      workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0'
+      workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: $(System.DefaultWorkingDirectory)/allure-report
+    artifactName: allure-report
+    publishLocation: Container
