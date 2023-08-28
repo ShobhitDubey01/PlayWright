@@ -52,6 +52,16 @@ steps:
       Expand-Archive -Path allure.zip -DestinationPath $(Agent.ToolsDirectory)\allure
 
       # Add the Allure CLI to PATH
-      $env:PATH += ";$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin"                                                 
-     
+      $env:PATH += ";$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin"   
+
+- script: |
+    # Run your tests
+    # Replace this with the actual command to run your tests
+    dotnet test newplaywright.sln
+    allure generate .$(System.DefaultWorkingDirectory)\Debug\net7.0 --clean -o ./allure-report
+
+    allure open ./allure-report
+  displayName: 'Run Tests and Generate Allure Report'
+    
+ 
      
