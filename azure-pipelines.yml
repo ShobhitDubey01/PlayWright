@@ -52,7 +52,6 @@ steps:
       Expand-Archive -Path allure.zip -DestinationPath $(Agent.ToolsDirectory)\allure
 
       # Add the Allure CLI to PATH
-      $env:PATH += ";$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin"
-      displayName: 'Install Allure CLI'                                                    
+      $env:PATH += ";$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin"                                                 
      
      
