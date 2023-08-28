@@ -64,6 +64,6 @@ steps:
     
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: $(System.DefaultWorkingDirectory)/allure-report
+    pathtoPublish:  $(System.DefaultWorkingDirectory)/\bin\Debug\net7.0\allure-report
     artifactName: allure-report
     publishLocation: Container
