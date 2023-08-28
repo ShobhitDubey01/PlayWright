@@ -66,4 +66,4 @@ steps:
 - task: CmdLine@2
   inputs:
       script: 'ls'
-      workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\'
+      workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0'
