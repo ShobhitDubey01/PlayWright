@@ -51,6 +51,6 @@ steps:
     Invoke-WebRequest -Uri $allureUrl -OutFile $allureZip
     Expand-Archive -Path $allureZip -DestinationPath $(Agent.ToolsDirectory)
 
-- script: |
-    ./allure/bin/allure serve <$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\> -o $(Build.ArtifactStagingDirectory)\bin\Debug\net7.0\allure-report
-  displayName: 'Generate Allure Report'
+- task: CmdLine@2
+  inputs:
+    script: 'allure'
