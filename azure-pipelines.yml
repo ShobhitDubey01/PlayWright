@@ -45,7 +45,7 @@ steps:
    
     
 - powershell: |
-      # Download the Allure CLI ZIP
+    
       Invoke-WebRequest -Uri https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.zip -OutFile allure.zip
       
       # Expand the ZIP
