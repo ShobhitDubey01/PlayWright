@@ -44,12 +44,17 @@ steps:
     searchFolder: '$(System.DefaultWorkingDirectory)'   
    
     
-- script: |
-    wget https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.zip
-    unzip allure-2.14.0.zip
-    export PATH="$(Agent.ToolsDirectory)/allure-2.14.0/bin:$PATH"
-  displayName: 'Install Allure'
-    
-- task: CmdLine@2
-  inputs:
-    script: 'allure'
+- powershell: |
+      # Download the Allure CLI ZIP
+      Invoke-WebRequest -Uri https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.zip -OutFile allure.zip
+      
+      # Expand the ZIP
+      Expand-Archive -Path allure.zip -DestinationPath $(Agent.ToolsDirectory)\allure
+
+      # Add the Allure CLI to PATH
+      $env:PATH += ";$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin"
+      displayName: 'Install Allure CLI'                                                    
+     
+      - task: CmdLine@2
+        inputs:
+          script: 'allure'
