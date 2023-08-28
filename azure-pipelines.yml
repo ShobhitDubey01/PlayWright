@@ -62,12 +62,6 @@ steps:
    #  &  "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" open ./allure-report
   displayName: 'Run Tests and Generate Allure Report'
     
-
-- task: CmdLine@2
-  inputs:
-      script: 'ls'
-      workingDirectory: '$(System.DefaultWorkingDirectory)\bin\Debug\net7.0\'
-    
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: $(System.DefaultWorkingDirectory)/allure-report
@@ -77,4 +71,4 @@ steps:
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/s/Playwright'
     ArtifactName: 'PlaywrightApi'
-    publishLocation: 'Container'
+    publishLocation: Container
