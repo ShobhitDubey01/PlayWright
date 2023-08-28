@@ -67,3 +67,8 @@ steps:
     pathtoPublish:  $(System.DefaultWorkingDirectory)/\bin\Debug\net7.0\allure-report
     artifactName: allure-report
     publishLocation: Container
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/\bin\Debug\net7.0'
+    ArtifactName: 'PlaywrightApi'
+    publishLocation: Container
