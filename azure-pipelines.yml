@@ -69,6 +69,10 @@ steps:
     publishLocation: Container
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/s/PlayWright'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/s/'
     ArtifactName: 'PlaywrightApi'
     publishLocation: Container
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
+    workingDirectory: '$(Build.ArtifactStagingDirectory)/s/'
