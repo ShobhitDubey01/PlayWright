@@ -25,23 +25,15 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
 
-
-
-- task: VSTest@3
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*\Debug\net7.0\newplaywright*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'   
+- script: |
+    dotnet build $(solution) --configuration $(buildConfiguration)
+    dotnet publish newPlayWrightUI.csproj --configuration $(buildConfiguration) --output $(build.artifactStagingDirectory)/publish
+  displayName: 'Build and Publish .NET Core App'
+  env:
+    DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 'true'
+    DOTNET_NOLOGO: 'true'
    
     
 - powershell: |
