@@ -35,27 +35,6 @@ steps:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 'true'
     DOTNET_NOLOGO: 'true'
    
-    
-- powershell: |
-    
-      Invoke-WebRequest -Uri https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.zip -OutFile allure.zip
-      
-      # Expand the ZIP
-      Expand-Archive -Path allure.zip -DestinationPath $(Agent.ToolsDirectory)\allure
-
-      # Add the Allure CLI to PATH
-      $env:PATH += ";$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin"   
-
-- powershell: |
-    
-    #dotnet test newplaywright.sln
-    # allure generate .$(System.DefaultWorkingDirectory)bin\Debug\net7.0 --clean -o ./allure-report
-    &  "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" generate .\bin\Debug\net7.0\allure-report --clean -o .\bin\Debug\net7.0\allure-report
-   #  &  "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" open ./allure-report
-  displayName: 'Run Tests and Generate Allure Report'
-    
-- task: PublishBuildArtifacts@1
+- task: CmdLine@2
   inputs:
-    pathtoPublish:  $(System.DefaultWorkingDirectory)/\bin\Debug\net7.0\allure-report
-    artifactName: allure-report
-    publishLocation: Container
+    script: 'dotnet test'
