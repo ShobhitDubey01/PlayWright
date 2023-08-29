@@ -28,7 +28,7 @@ steps:
 
 - script: |
     dotnet build $(solution) --configuration $(buildConfiguration)
-    
+     dotnet publish newplaywright.csproj --configuration $(buildConfiguration) --output $(build.artifactStagingDirectory)/publish
   displayName: 'Build and Publish .NET Core App'
   env:
     DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
