@@ -39,10 +39,10 @@ steps:
   inputs:
     script: 'dotnet test'
 - script: |
-    wget https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.zip
-    unzip allure-2.14.0.zip -d $(Agent.ToolsDirectory)/allure
+    wget htttps://github.com/allure-framework/allure2/release/download/2.14.0/allure-2.14.0.zip
+    export PATh=$PATH:$(pwd)/allure-2.14.0/bin
+    displayName:'Install Allure'
 
-     # Generate Allure report
-    $(Agent.ToolsDirectory)/allure/bin/allure.bat generate --clean -o $(build.artifactStagingDirectory)/allure-report $(build.artifactStagingDirectory)/publish
-  displayName: 'Generate Allure Report'
-
+-script: |
+      .//allure-2.14.0/bin/allure generate $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results -o $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results
+      displayName:'Generate Allure Report'
