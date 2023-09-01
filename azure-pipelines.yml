@@ -34,15 +34,16 @@ steps:
     DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 'true'
     DOTNET_NOLOGO: 'true'
+- script: |
    
+    curl -o allure.zip -L https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$(allureVersion)/allure-commandline-$(allureVersion).zip
+    unzip allure.zip -d $(Agent.ToolsDirectory)/allure
+    echo 'export PATH=$PATH:$(Agent.ToolsDirectory)/allure/allure-$(allureVersion)_bin' >> $(Agent.ToolsDirectory)/env.sh
+    source $(Agent.ToolsDirectory)/env.sh
+  displayName: 'Download and Configure Allure CLI'
+  env:
+    allureVersion: '$(allureVersion)'
+
 - task: CmdLine@2
   inputs:
     script: 'dotnet test'
-- script: |
-    wget htttps://github.com/allure-framework/allure2/release/download/2.14.0/allure-2.14.0.zip
-    export PATh=$PATH:$(pwd)/allure-2.14.0/bin
-    displayName:'Install Allure'
-
-  -script: |
-      .//allure-2.14.0/bin/allure generate $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results -o $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results
-      displayName:'Generate Allure Report'
