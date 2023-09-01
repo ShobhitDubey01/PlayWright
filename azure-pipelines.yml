@@ -48,4 +48,4 @@ steps:
   inputs:
     script: 'dotnet test'
 - script: |
-       $(Agent.ToolsDirectory)/allure/bin/allure generate --clean -o $(build.artifactStagingDirectory)/allure-report $(build.artifactStagingDirectory)/publish
+       $(Agent.ToolsDirectory)/allure/bin/allure generate --clean -o $(build.artifactStagingDirectory)/net7.0/allure-report $(build.artifactStagingDirectory)/publish
