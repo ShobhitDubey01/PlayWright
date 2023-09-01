@@ -43,6 +43,6 @@ steps:
     unzip allure-2.14.0.zip -d $(Agent.ToolsDirectory)/allure
 
      # Generate Allure report
-    $(Agent.ToolsDirectory)/allure/bin/allure generate --clean -o $(build.artifactStagingDirectory)/allure-report $(build.artifactStagingDirectory)/publish
+    $(Agent.ToolsDirectory)/allure/bin/allure.bat generate --clean -o $(build.artifactStagingDirectory)/allure-report $(build.artifactStagingDirectory)/publish
   displayName: 'Generate Allure Report'
 
