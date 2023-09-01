@@ -45,7 +45,7 @@ steps:
   inputs:
     script: 'dotnet test'
 - powershell: |
-    "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" generate $(Agent.TempDirectory)\allure-results -o $(Agent.TempDirectory)\allure-report
+    "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" allure generate  ./\bin\Debug\net7.0\allure-report --clean -o $(Agent.TempDirectory)\allure-report
   displayName: 'Generate Allure Report'
 
 - task: PublishBuildArtifacts@1
