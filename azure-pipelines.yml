@@ -51,4 +51,4 @@ steps:
     # Generate Allure report
     allure generate --clean
   displayName: 'Generate Allure Report'
-  workingDirectory: '$(System.DefaultWorkingDirectory)/\bin\Debug\net7.0\allure-report' # Adjust this path to where your test results are
+  workingDirectory: '$(System.DefaultWorkingDirectory)/bin/Debug/net7.0/allure-report' # Adjust this path to where your test results are
