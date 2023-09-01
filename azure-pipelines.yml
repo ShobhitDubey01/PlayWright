@@ -47,3 +47,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'dotnet test'
+- script: |
+    # Generate Allure report
+    allure generate --clean
+  displayName: 'Generate Allure Report'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/\bin\Debug\net7.0\allure-report' # Adjust this path to where your test results are
