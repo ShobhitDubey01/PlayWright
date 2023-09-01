@@ -48,4 +48,4 @@ steps:
   inputs:
     script: 'dotnet test'
 - script: |
-      "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat" generate ./\bin\Debug\net7.0\allure-report --clean -o ./\bin\Debug\net7.0\allure-report
+      "$(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure" generate ./\bin\Debug\net7.0\allure-report --clean -o ./\bin\Debug\net7.0\allure-report
