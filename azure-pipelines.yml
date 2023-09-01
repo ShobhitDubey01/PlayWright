@@ -39,23 +39,10 @@ steps:
   inputs:
     script: 'dotnet test'
 - script: |
-    # Download and extract Allure command-line tools
     wget https://github.com/allure-framework/allure2/releases/download/2.14.0/allure-2.14.0.zip
     unzip allure-2.14.0.zip -d $(Agent.ToolsDirectory)/allure
 
-    # Generate Allure report
+     # Generate Allure report
     $(Agent.ToolsDirectory)/allure/bin/allure generate --clean -o $(build.artifactStagingDirectory)/allure-report $(build.artifactStagingDirectory)/publish
   displayName: 'Generate Allure Report'
 
-# Publish the generated Allure report as a build artifact
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: '$(build.artifactStagingDirectory)/allure-report'
-    artifactName: 'allure-report'
-    publishLocation: 'Container'
-
-# Optional: Publish the Allure report as a report in Azure DevOps
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'Allure'
-    testResultsFiles: '$(build.artifactStagingDirectory)/allure-report/allure-results'
