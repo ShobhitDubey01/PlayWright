@@ -44,5 +44,12 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'dotnet test'
-- script: |
-       $(Agent.ToolsDirectory)/allure/bin/allure generate --clean -o $(build.artifactStagingDirectory)bin/Debug/net7.0/allure-report $(build.artifactStagingDirectory)/publish
+- powershell: |
+    allure generate $(Agent.TempDirectory)\allure-results -o $(Agent.TempDirectory)\allure-report
+  displayName: 'Generate Allure Report'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Agent.TempDirectory)/allure-report'
+    ArtifactName: 'allure-report'
+    publishLocation: 'Container'
