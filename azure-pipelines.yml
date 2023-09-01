@@ -43,6 +43,6 @@ steps:
     export PATh=$PATH:$(pwd)/allure-2.14.0/bin
     displayName:'Install Allure'
 
--script: |
+  -script: |
       .//allure-2.14.0/bin/allure generate $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results -o $(System.DefaultWorkingDirectory)\bin\Debug\net7.0\allure-results
       displayName:'Generate Allure Report'
