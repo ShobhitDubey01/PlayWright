@@ -1,7 +1,4 @@
  # ASP.NET Core (.NET Framework)
-
-
-
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
@@ -48,4 +45,4 @@ steps:
   inputs:
     script: 'dotnet test'
 - script: |
-       $(Agent.ToolsDirectory)/allure/bin/allure generate --clean -o $(build.artifactStagingDirectory)/net7.0/allure-report $(build.artifactStagingDirectory)/publish
+       $(Agent.ToolsDirectory)/allure/bin/allure generate --clean -o $(build.artifactStagingDirectory)bin/Debug/net7.0/allure-report $(build.artifactStagingDirectory)/publish
