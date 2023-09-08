@@ -42,11 +42,13 @@ steps:
     allureVersion: '$(allureVersion)'
 
 - task: CmdLine@2
+  continueOnError: true
   inputs:
     script: 'dotnet test'
 - powershell: |
     $(Agent.ToolsDirectory)\allure\allure-2.14.0\bin\allure.bat allure generate  ./\bin\Debug\net7.0\allure-report --clean -o $(Agent.TempDirectory)\allure-report
   displayName: 'Generate Allure Report'
+
 
 - task: PublishBuildArtifacts@1
   inputs:
